@@ -37,8 +37,6 @@ async def main():
     msg = input("What kind of story would you like to hear? ")
     input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
-    latest_outline: str | None = None
-
     with trace("LLM as a judge"):
         while True:
             story_outline_result = await Runner.run(starting_agent=story_generator, input=input_items)
