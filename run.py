@@ -1,8 +1,8 @@
 import asyncio
 
-from dynamic_system_prompt import main
+from services import llm_as_a_judge, dynamic_system_prompt
 
 user_message = "tell me joke"
-response = asyncio.run(main(user_message=user_message))
+dynamic_prompt_response = asyncio.run(dynamic_system_prompt.main(user_message=user_message))
 
-print(response)
+outlined_story = asyncio.run(llm_as_a_judge.main())
